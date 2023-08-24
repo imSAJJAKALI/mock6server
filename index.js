@@ -11,8 +11,8 @@ app.use(cors());
 
 app.use('/api', userRouter); 
 app.use('/api',blogRouter)
-app.get('/',auth,(req,res)=>{
-    res.send('Home Page')
+app.get('/',(req,res)=>{
+    res.json({home:"Home Page"})
 })
 
 app.listen(8080, async () => {

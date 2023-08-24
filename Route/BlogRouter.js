@@ -4,7 +4,7 @@ const BlogModel = require('../Model/blogModel');
 
 const blogRouter = express.Router();
 
-// Create a new blog post
+
 blogRouter.post('/blogs', async (req, res) => {
     try {
         const newBlog = new BlogModel({ ...req.body });
@@ -16,7 +16,7 @@ blogRouter.post('/blogs', async (req, res) => {
     }
 });
 
-// Get all blogs (with JWT authorization)
+
 blogRouter.get('/blogs', auth, async (req, res) => {
     try {
         const blogs = await BlogModel.find();
@@ -27,7 +27,7 @@ blogRouter.get('/blogs', auth, async (req, res) => {
     }
 });
 
-// Search blogs by title or category
+
 blogRouter.get('/blogs/search', auth, async (req, res) => {
     try {
         const { title, category } = req.query;
@@ -48,7 +48,7 @@ blogRouter.get('/blogs/search', auth, async (req, res) => {
     }
 });
 
-// Sort blogs based on date
+
 blogRouter.get('/blogs/sort', auth, async (req, res) => {
     try {
         const sort = req.query.sort;
@@ -61,7 +61,7 @@ blogRouter.get('/blogs/sort', auth, async (req, res) => {
     }
 });
 
-// Update a blog by ID
+
 blogRouter.patch('/blogs/:id', auth, async (req, res) => {
     try {
         const blogId = req.params.id;
@@ -73,7 +73,7 @@ blogRouter.patch('/blogs/:id', auth, async (req, res) => {
     }
 });
 
-// Delete a blog by ID
+
 blogRouter.delete('/blogs/:id', auth, async (req, res) => {
     try {
         const blogId = req.params.id;
@@ -85,7 +85,7 @@ blogRouter.delete('/blogs/:id', auth, async (req, res) => {
     }
 });
 
-// Like a blog by ID
+
 blogRouter.patch('/blogs/:id/like', auth, async (req, res) => {
     try {
         const blogId = req.params.id;
@@ -97,7 +97,7 @@ blogRouter.patch('/blogs/:id/like', auth, async (req, res) => {
     }
 });
 
-// Comment on a blog by ID
+
 blogRouter.patch('/blogs/:id/comment', auth, async (req, res) => {
     try {
         const blogId = req.params.id;
